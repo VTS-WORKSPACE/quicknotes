@@ -15,7 +15,7 @@ return ['resources' =>
 		[
 			'name' => 'share#destroy',
 			'url' => '/share/{noteId}',
-			'verb' => 'DELETE'
+			'verb' => 'POST'
 		],
 		// Upload attachments
 		[
