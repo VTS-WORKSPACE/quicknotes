@@ -1,10 +1,14 @@
 <?php
 return ['resources' =>
 	[
-		'note' => ['url' => '/notes'],
 		'noteApi' => ['url' => '/api/v1/notes']
 	],
 	'routes' => [
+    ['name' => 'note#index', 'url' => '/notes', 'verb' => 'GET'],
+    ['name' => 'note#show', 'url' => '/notes/{id}', 'verb' => 'GET'],
+    ['name' => 'note#create', 'url' => '/notes', 'verb' => 'POST'],
+    ['name' => 'note#update', 'url' => '/notes/{id}/edit', 'verb' => 'POST'],
+    ['name' => 'note#destroy', 'url' => '/notes/{id}/delete', 'verb' => 'POST'],
 		// Main page
 		[
 			'name' => 'page#index',

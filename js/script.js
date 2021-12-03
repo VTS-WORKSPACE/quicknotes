@@ -114,8 +114,8 @@ Notes.prototype = {
         var self = this;
         var deferred = $.Deferred();
         $.ajax({
-            url: this._baseUrl + '/' + note.id,
-            method: 'PUT',
+            url: this._baseUrl + '/' + note.id + '/edit',
+            method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(note)
         }).done(function (dbnote) {
@@ -132,8 +132,8 @@ Notes.prototype = {
         var self = this;
         var deferred = $.Deferred();
         $.ajax({
-            url: this._baseUrl + '/' + note.id,
-            method: 'DELETE'
+            url: this._baseUrl + '/' + note.id + '/delete',
+            method: 'POST'
         }).done(function () {
             var index = self._notes.findIndex((aNote) => aNote.id === note.id);
             self._notes.splice(index, 1);
@@ -149,7 +149,7 @@ Notes.prototype = {
         var deferred = $.Deferred();
         $.ajax({
             url: OC.generateUrl('/apps/quicknotes/share') + '/' + note.id,
-            method: 'DELETE'
+            method: 'POST'
         }).done(function () {
             var index = self._notes.findIndex((aNote) => aNote.id === note.id);
             self._notes.splice(index, 1);

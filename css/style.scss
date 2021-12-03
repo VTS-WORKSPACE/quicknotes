@@ -104,6 +104,10 @@
     min-height: 75px;
 }
 
+.note-content > div {
+  overflow: auto;
+}
+
 .icon-header-note {
     cursor: pointer;
     float: right;

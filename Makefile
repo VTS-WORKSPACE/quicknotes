@@ -26,7 +26,7 @@ package_name=$(app_name)
 cert_dir=$(HOME)/.nextcloud/certificates
 
 # building the javascript
-all: build
+all: build js-templates release
 build: deps
 
 # L10N Rules
@@ -122,3 +122,6 @@ appstore: distclean depsmin
 	tar -czf $(build_dir)/$(app_name).tar.gz \
 	    -C $(sign_dir) $(app_name)
 	openssl dgst -sha512 -sign $(cert_dir)/$(app_name).key $(build_dir)/$(app_name).tar.gz | openssl base64
+
+release:
+	zip -r release.zip . -x "node_modules/*" "tests/*" "vendor/*" ".github/*"
