@@ -114,7 +114,7 @@ Notes.prototype = {
         var self = this;
         var deferred = $.Deferred();
         $.ajax({
-            url: this._baseUrl + '/' + note.id,
+            url: this._baseUrl + '/' + note.id + '/edit',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(note)
@@ -132,7 +132,7 @@ Notes.prototype = {
         var self = this;
         var deferred = $.Deferred();
         $.ajax({
-            url: this._baseUrl + '/' + note.id,
+            url: this._baseUrl + '/' + note.id + '/delete',
             method: 'POST'
         }).done(function () {
             var index = self._notes.findIndex((aNote) => aNote.id === note.id);
